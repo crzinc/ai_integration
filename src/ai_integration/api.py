@@ -150,7 +150,7 @@ async def verify(token: str = "") -> dict:
 
 @app.get("/", response_class=HTMLResponse)
 async def root() -> HTMLResponse:
-    index_path = Path(__file__).parent / "frontend" / "index.html"
+    index_path = Path(__file__).parent.parent.parent / "frontend" / "index.html"
     if index_path.exists():
         return HTMLResponse(content=index_path.read_text(encoding="utf-8"))
     return HTMLResponse(content="<h1>Dashboard not found</h1>")

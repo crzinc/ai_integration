@@ -119,7 +119,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 
     # 4. Auto-reply
     if should_auto_respond(classification):
-        auto_text = get_auto_response(classification)
+        auto_text = await get_auto_response(message.text, classification["category"])
         if auto_text:
             try:
                 await message.reply_text(auto_text)
